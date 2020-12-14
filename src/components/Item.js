@@ -16,13 +16,15 @@ const Item = (props) => {
         };     
     };
 
-//create a function that takes a prop callback from cart so add to cart button actually adds it, add qty, price, and name and then displays it
+//function to submit items to cart via the callback getItem()
 const SubmitToCart = () => {
     let obj = {name:name, price: price, qty: qty};
     console.log(obj);
-    return obj; //return to the callback prop function
+    props.getItem(obj);
+    console.log("called callback to app from item");
+    return obj; 
 };
-//also have submit to cart reset the qty to 0 for the item
+
 
     return (
         <div className="itemTile">

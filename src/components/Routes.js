@@ -16,8 +16,8 @@ const Routes = (props) => {
             <NavBar />
             <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route exact path="/shop" component={Shop}/>
-                <Route exact path="/cart" component={Cart}/>
+                <Route exact path="/shop" render={()=> <Shop getItem={props.getItem}/>}/>
+                <Route exact path="/cart" render={()=> <Cart returnItem={props.returnItem}/>}/>
             </Switch>
         </Router>
     )
