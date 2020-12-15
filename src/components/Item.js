@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from "react";
-import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
+import React, {useState} from "react";
 
 const Item = (props) => {
 
@@ -25,7 +24,6 @@ const SubmitToCart = () => {
     return obj; 
 };
 
-
     return (
         <div className="itemTile">
             <div className="pic">Image Here</div>
@@ -43,14 +41,8 @@ const SubmitToCart = () => {
                     <div className="itemDesc">A plain T-Shirt that is nice.</div>   
                     <button id="addCart" onClick={SubmitToCart}>Add to Cart</button>
                 </div>
-                
-
-
-
-
         </div>
     )
 };
-
 
 export default Item;

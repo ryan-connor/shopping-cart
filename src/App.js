@@ -1,12 +1,6 @@
 import './App.css';
-import React, {useState, useEffect} from "react";
-import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
-import Cart from "./components/Cart";
-import Home from "./components/Home";
-import Item from "./components/Item";
-import Shop from "./components/Shop";
+import React, {useState} from "react";
 import Routes from "./components/Routes";
-
 
 function App() {
 
@@ -28,8 +22,6 @@ const getItem = (info) => {
   else {
     tempCart= [...tempCart, info];
   }
-
-
   setAppCart([...tempCart]);
   console.log(tempCart);
 };
@@ -41,10 +33,23 @@ const returnItem = () => {
   return appCart;
 };
 
+//function to remove items from cart
+const removeItem = (info) => {
+  let tempCart = appCart;
+  let cartIndex = tempCart.findIndex( (item)=> {
+    console.log("item:",item,"info:",info);
+    return item.name === info;
+  });
+console.log("index to remove:",cartIndex);
+  tempCart.splice(cartIndex,1);
+
+  setAppCart([...tempCart]);
+  console.log(tempCart);
+};
 
   return (
     <div>
- <Routes getItem={getItem} returnItem={returnItem}/>
+ <Routes getItem={getItem} returnItem={returnItem} removeItem={removeItem}/>
  </div>
   );
 };
