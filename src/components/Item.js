@@ -3,8 +3,11 @@ import React, {useState} from "react";
 const Item = (props) => {
 
     const [qty,setQty] = useState(0);
-    const [name,setName]=useState(props.name);
-    const [price, setPrice] = useState(props.price);
+
+    const name = props.name;
+    const price = props.price;
+    const desc = props.desc;
+    const picture = props.pic;
 
     const increment = () => {
         setQty( qty+1);
@@ -17,28 +20,28 @@ const Item = (props) => {
 
 //function to submit items to cart via the callback getItem()
 const SubmitToCart = () => {
-    let obj = {name:name, price: price, qty: qty};
-    console.log(obj);
+    let obj = {name:name, price: price, qty: qty, desc:desc};
+    // console.log(obj);
     props.getItem(obj);
-    console.log("called callback to app from item");
+    // console.log("called callback to app from item");
     return obj; 
 };
 
     return (
         <div className="itemTile">
-            <div className="pic">Image Here</div>
+            <div className="pic"><img className="tileImage" src={picture} alt={name}></img></div>
                 <div className="itemGen">
                     <div className="itemInfo">
                         <div className="price">${price}</div>
                         <div className="qty">Qty:
                             <div id="qtyBox">{qty}</div>
-                            <button onClick={increment}>+</button>
-                            <button onClick={decrement}>-</button>
+                            <button className="qtyButton" onClick={increment}>+</button>
+                            <button className="qtyButton" onClick={decrement}>-</button>
                         </div>        
                         
                     </div>       
                     <div className="itemDesc" id="itemName">{name}</div>
-                    <div className="itemDesc">A plain T-Shirt that is nice.</div>   
+                    <div className="itemDesc">{desc}</div>   
                     <button id="addCart" onClick={SubmitToCart}>Add to Cart</button>
                 </div>
         </div>

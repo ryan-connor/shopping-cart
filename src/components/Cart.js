@@ -3,14 +3,14 @@ import React from "react";
 const Cart = (props) => {
 
 const renderCart = (arr) => {
-    console.log("tried to render cart from cart");
+    // console.log("tried to render cart from cart");
     return (
         arr.map( (item)=> {
-            return <li className="cartList">
-                    <div>{item.name}</div>
-                    <div>Qty: {item.qty}</div>
-                    <div>${item.price*item.qty}</div>
-                    <button className="cartRemoveButton" onClick={removeItem} data-key={item.name}>Remove</button>
+            return <li key= {"li" + item.name} className="cartList">
+                    <div key={item.name}>{item.name}</div>
+                    <div key={"qty"+item.name}>Qty: {item.qty}</div>
+                    <div key={"price"+item.name}>${item.price*item.qty}</div>
+                    <button key={"button"+item.name}className="cartRemoveButton" onClick={removeItem} data-key={item.name}>Remove</button>
                 </li>;
         })
     );
@@ -26,18 +26,28 @@ const renderTotal = (arr) => {
     );
 };
 
+const emptyCart = (arr) => {
+    
+    if (arr.length===0){
+        return (
+            <div id="emptyCart">There are No Items Currently in your Cart!</div>
+        );
+    } 
+};
+
 const removeItem = (e) => {
-    console.log("target is:",e.target.getAttribute("data-key"));
+    // console.log("target is:",e.target.getAttribute("data-key"));
 let toRemove = e.target.getAttribute("data-key");
 props.removeItem(toRemove);
-console.log("from cart, tried to remove:",e.target);
+// console.log("from cart, tried to remove:",e.target);
 };
 
     return (
         <div>
-            <h1>Cart</h1>
+            <h1 className="pageTitle">Cart</h1>
             <div>
                 {renderCart(props.returnItem())}
+                {emptyCart(props.returnItem())}
                 {renderTotal(props.returnItem())}
             </div>
         </div>

@@ -2,18 +2,64 @@
   text-align: center;
 }
 
+/* nav bar rules */
 .nav {
   display: flex;
   align-items:center;
   justify-content: space-around;
   background-color: rgb(118 118 228);
   height: 5vh;
+  font-size: 1.2rem;
+  min-height: 20px;
 }
 
 .nav > * {
   text-decoration: none;
   color: white;
 }
+
+
+/* home page rules */
+
+#homeInfo {
+  margin: 5% auto;
+  width: 80%;
+  max-width: 900px;
+}
+
+#homeTitle{
+  font-size: 2.5rem;
+}
+
+p {
+  /* text-indent: 10px; */
+  font-size: 1.5rem;
+
+}
+
+#shopLinkCont {
+  border: 1px solid black;
+  background-color: #5f5fef;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+#homeImage {
+  width: 200px;
+
+}
+
+#homeImageCont {
+  width: 200px;
+  margin: 5px auto;
+}
+
+
+/* item rules */
 
 .itemTile {
   width: 30%;
@@ -24,9 +70,14 @@
 .pic {
   height: 200px;
   width: 200px;
-  border: 1px solid black;
+  border: 1px solid rgb(118 118 228);
   margin: auto;
   background-color: rgb(201 189 253);
+}
+
+.tileImage{
+  width: 100%;
+  height: 100%;
 }
 
 .itemInfo {
@@ -46,14 +97,29 @@
     display: flex;
 }
 #qtyBox {
-  margin: 0 2px 0 2px;
-  border: 1px solid black;
+  margin: 0 4px;
+  width:fit-content;
+  /* border: 1px solid black; */
+}
+
+.qtyButton{
+  width: 20px;
+  margin: 0 1px;
+  padding: 0;
+  text-align: center;
 }
 
 #addCart {
   display: flex;
   justify-content: center;
   margin: 5px auto;
+  width: fit-content;
+}
+
+/* shop rules */
+
+.pageTitle{
+  margin: 1% auto 1% 3%;
 }
 
 #shopTileCont {
@@ -63,16 +129,7 @@
   flex-wrap: wrap;
 }
 
-#shopLinkCont {
-  border: 1px solid black;
-  background-color: #5f5fef;
-  width: 150px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px auto;
-}
+
 
 #shopLink {
   color: white;
@@ -82,6 +139,8 @@
 body {
   background-color: #dfecef;
 }
+
+/* cart rules */
 
 .cartList {
   display: grid;
@@ -107,4 +166,12 @@ body {
   text-decoration: none;
   display: inline-block;
   border-radius: 4px;
+  height: fit-content;
+  padding: 5px;
+}
+
+#emptyCart{
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1.5em;
 }

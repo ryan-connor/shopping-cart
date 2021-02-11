@@ -14,22 +14,26 @@ const getItem = (info) => {
   let inCart = tempCart.findIndex( (item)=> {
     return item.name === info.name;
   });
-  console.log("inCart:",inCart);
+  // console.log("inCart:",inCart);
  
   if(inCart>-1) {
     tempCart[inCart].qty = tempCart[inCart].qty + info.qty;
   }
   else {
-    tempCart= [...tempCart, info];
+    //check that item added to cart has a nonzero qty
+    if (info.qty > 0) {
+      tempCart= [...tempCart, info];
+    }
+    
   }
   setAppCart([...tempCart]);
-  console.log(tempCart);
+  // console.log(tempCart);
 };
 
 //callback function to return full cart info
 const returnItem = () => {
-  console.log("returned cart:");
-  console.log(appCart);
+  // console.log("returned cart:");
+  // console.log(appCart);
   return appCart;
 };
 
@@ -37,14 +41,14 @@ const returnItem = () => {
 const removeItem = (info) => {
   let tempCart = appCart;
   let cartIndex = tempCart.findIndex( (item)=> {
-    console.log("item:",item,"info:",info);
+    // console.log("item:",item,"info:",info);
     return item.name === info;
   });
-console.log("index to remove:",cartIndex);
+// console.log("index to remove:",cartIndex);
   tempCart.splice(cartIndex,1);
 
   setAppCart([...tempCart]);
-  console.log(tempCart);
+  // console.log(tempCart);
 };
 
   return (
