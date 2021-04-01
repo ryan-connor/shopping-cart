@@ -1,4 +1,9 @@
+<h4 align="center">
+<img alt="ShoppingCart Gif" src="demo/ShoppingCart.gif" width="800px">
+</h4>
+
 ## Shopping Cart App
+
 Shopping Cart/simple Ecommerce app frontend.
 
 ## Description
